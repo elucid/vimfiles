@@ -9,35 +9,30 @@ runtime macros/matchit.vim
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tomtom/tcomment_vim' 
 Bundle 'kchmck/vim-coffee-script' 
-Bundle 'scrooloose/nerdtree' 
-Bundle 'tpope/vim-haml' 
 Bundle 'nono/vim-handlebars' 
 Bundle 'bronson/vim-trailing-whitespace' 
 Bundle 'wincent/Command-T' 
 Bundle 'mileszs/ack.vim' 
 Bundle 'vimwiki/vimwiki' 
 Bundle 'benmills/vimux' 
-Bundle 'Blackrush/vim-gocode' 
-Bundle 'dgryski/vim-godef' 
-"Bundle 'scrooloose/syntastic' 
 
 Bundle 'tpope/vim-bundler' 
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'altercation/vim-colors-solarized.git'
-Bundle 'ecomba/vim-ruby-refactoring'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
-Bundle 'guns/vim-clojure-static'
-Bundle 'guns/vim-sexp'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'Shutnik/jshint2.vim'
 Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/SQLUtilities'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
 
+set hlsearch
 
 vnoremap . :norm.<CR>
 syntax on
@@ -45,7 +40,6 @@ filetype plugin indent on
 set noswapfile
 set hidden
 set autoread
-"set mouse=a
 
 set ts=2
 set expandtab
@@ -53,19 +47,14 @@ set tabstop=2
 set shiftwidth=2
 set autoindent
 set smartindent
-"set number
-"set relativenumber
 " make searches case-sensitive only if they contain upper-case characters
 set ignorecase smartcase
-" highlight current line
-""set cursorline
 set cmdheight=1
 set switchbuf=useopen
 set numberwidth=5
 set showtabline=2
 set winwidth=79
 " This makes RVM work inside Vim. I have no idea why.
-set shell=zsh
 let mapleader=","
 let maplocalleader="\\"
 nnoremap <leader><leader> <c-^>
@@ -73,13 +62,12 @@ nnoremap <leader><leader> <c-^>
 augroup filetypedetect
 	  au! BufRead,BufNewFile *nc setfiletype nc
 augroup END
+" possibly not needed
 noremap <silent> <F11> :cal VimCommanderToggle()<CR>
 
-" status line customization ---------------------- {{{
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+" status line customization
 let g:Powerline_symbols = 'fancy'
 set laststatus=2
-" }}}
 
 set ai
 set si
@@ -87,6 +75,8 @@ set t_Co=256 " 256 colors
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
+set term=xterm-256color
+set termencoding=utf-8
 
 
 " open files in directories of current file
@@ -227,31 +217,15 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 
 " }}}
 
-""""""""""""""""""
-" experimentation
-""""""""""""""""""
-" delete till dtCHAR
-" delete find dfCHAR
-" delete inside diCHAR
-" delete around daCHAR
-" delete around paragraph dap
-" surround.vim!!
-
 " global mappings ---------------------- {{{
 
 inoremap jk <Esc>
-
-" nerdtree
-nnoremap <silent> <F9> :NERDTree<CR>
 
 " remove search highlight
 nnoremap <CR> :nohlsearch<cr>
 " move lines
 nnoremap - ddp
 nnoremap _ ddkP
-" uppercase word
-inoremap <c-u> <esc>vawUea
-nnoremap <c-u> <esc>vawU
 
 " edit vim rc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -265,8 +239,6 @@ nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 
-nnoremap H 0
-nnoremap L $
 nnoremap K <silent>
 
 " adding movements
@@ -275,20 +247,6 @@ onoremap in( :<c-u>normal! f(vi(<cr>
 " inside last parens
 onoremap il( :<c-u>normal! F)vi(<cr>
 
-" Vimwiki keys
-nnoremap <leader>wd :VimwikiDiaryIndex<cr>
-augroup my_vimwiki
-  autocmd!
-  " mark task as done
-  autocmd BufNewFile,BufRead *.wiki nnoremap <leader>wm ^i_<esc>A_<esc>0
-  " unmark task
-  autocmd BufNewFile,BufRead *.wiki nnoremap <leader>wu 0x$x0
-augroup END
-
-"vimux mappings
-nnoremap <leader>rc :VimuxPromptCommand<cr>
-nnoremap <leader>rl :RunLastVimTmuxCommand<cr>
-" }}}
 
 " Vimscript file settings ---------------------- {{{
 augroup filetype_vim
@@ -333,9 +291,8 @@ endfunction
 
 command! -range=% ChangeHashSyntax call <SID>ChangeHashSyntax(<line1>,<line2>)
 
-set wildignore+=*.o,*.obj,.git,node_modules
+set wildignore+=*.o,*.obj,.git,node_modules,vendor,tmp
 
-"au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
