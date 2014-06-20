@@ -1,8 +1,11 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 runtime macros/matchit.vim
 
@@ -31,6 +34,8 @@ Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/SQLUtilities'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
+
+call vundle#end()
 
 set hlsearch
 
