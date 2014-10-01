@@ -9,31 +9,31 @@ Plugin 'gmarik/Vundle.vim'
 
 runtime macros/matchit.vim
 
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tomtom/tcomment_vim' 
-Bundle 'kchmck/vim-coffee-script' 
-Bundle 'nono/vim-handlebars' 
-Bundle 'bronson/vim-trailing-whitespace' 
-Bundle 'git://git.wincent.com/command-t.git'
-Bundle 'mileszs/ack.vim' 
-Bundle 'vimwiki/vimwiki' 
-Bundle 'benmills/vimux' 
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'nono/vim-handlebars'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'mileszs/ack.vim'
+Plugin 'vimwiki/vimwiki'
+Plugin 'benmills/vimux'
 
-Bundle 'tpope/vim-bundler' 
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'altercation/vim-colors-solarized.git'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-classpath'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'Shutnik/jshint2.vim'
-Bundle 'vim-scripts/Align'
-Bundle 'vim-scripts/SQLUtilities'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
+Plugin 'tpope/vim-bundler'
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'altercation/vim-colors-solarized.git'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-classpath'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'Shutnik/jshint2.vim'
+Plugin 'vim-scripts/Align'
+Plugin 'vim-scripts/SQLUtilities'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 
 call vundle#end()
 
@@ -127,7 +127,7 @@ augroup vimrcEx
   autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
   autocmd FileType python set sw=4 sts=4 et
 
-  autocmd! BufRead,BufNewFile *.sass setfiletype sass 
+  autocmd! BufRead,BufNewFile *.sass setfiletype sass
 
   autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
   autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:&gt;
