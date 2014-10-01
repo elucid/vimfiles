@@ -191,6 +191,7 @@ nnoremap <leader>gg :topleft 100 :split Gemfile<cr>
 nnoremap <leader>gt :CommandTFlush<cr>\|:CommandTTag<cr>
 nnoremap <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 nnoremap <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+let g:CommandTTraverseSCM='pwd'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
