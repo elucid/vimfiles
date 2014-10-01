@@ -300,7 +300,7 @@ endfunction
 
 command! -range=% ChangeHashSyntax call <SID>ChangeHashSyntax(<line1>,<line2>)
 
-set wildignore+=*.o,*.obj,.git,node_modules,vendor,tmp
+set wildignore+=*.o,*.obj,.git,node_modules,bower_components,tmp
 
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
