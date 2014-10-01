@@ -67,6 +67,9 @@ nnoremap <leader><leader> <c-^>
 augroup filetypedetect
 	  au! BufRead,BufNewFile *nc setfiletype nc
 augroup END
+
+au BufRead,BufNewFile *.es6 set filetype=javascript
+
 " possibly not needed
 noremap <silent> <F11> :cal VimCommanderToggle()<CR>
 
