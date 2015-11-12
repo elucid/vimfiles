@@ -38,6 +38,7 @@ Plugin 'tpope/vim-repeat'
 call vundle#end()
 
 set hlsearch
+set number
 
 vnoremap . :norm.<CR>
 syntax on
