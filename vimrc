@@ -34,6 +34,7 @@ Plugin 'vim-scripts/Align'
 Plugin 'vim-scripts/SQLUtilities'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()
 
